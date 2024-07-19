@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: #3e3e3e;
+}
+.navbar .logo{
+    width: max(10%, 80px);
+    height: max(10%, 80px);
+    border-radius: 50%;
+}
+
+.navbar .profile{
+    width: 40px;
+}
+.navbar .text h2{
+    justify-content: center;
+    align-items: center;
+    color: burlywood;
+}
