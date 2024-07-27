@@ -2,8 +2,9 @@ import orderModel from "../models/orderModel.js";
 import axios from "axios";
 import userModel from "../models/userModel.js";
 
-// const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
+const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
 const frontend_url = "http://localhost:5173"; 
+
 
 // Simulated cart storage (in memory, you might want to use session storage or database)
 let userCarts = {};
@@ -38,7 +39,7 @@ const placeOrder = async (req, res) => {
     // Make a POST request to Paystack to initialize the transaction
     const response = await axios.post('https://api.paystack.co/transaction/initialize', paymentData, {
       headers: {
-        Authorization: `Bearer sk_live_843d6d1607f365afdc7d461797af7f0c73d52b61`,
+        Authorization: `Bearer ${paystackSecretKey}`,
         'Content-Type': 'application/json'
       }
     });
@@ -67,7 +68,7 @@ const verifyOrder = async (req, res) => {
     // Make a GET request to Paystack to verify the transaction
     const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`, {
       headers: {
-        Authorization: `Bearer sk_live_843d6d1607f365afdc7d461797af7f0c73d52b61`,
+        Authorization: `Bearer ${paystackSecretKey}`,
         'Content-Type': 'application/json'
       }
     });
