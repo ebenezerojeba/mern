@@ -1,0 +1,21 @@
+.visme-form-page {
+    padding: 2rem;
+    text-align: center;
+    height: 60vh;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .visme-form-iframe {
+    width: 300px;
+    height: 700px;
+    border: 50px;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    margin-top: -11rem;
+    margin-left: -1.5rem;
+  }
+  

@@ -1,0 +1,23 @@
+export const LGAs = [
+    { name: "Agege", price: 1000 },
+    { name: "Ajeromi-Ifelodun", price: 1200 },
+    { name: "Alimosho", price: 1500 },
+    { name: "Amuwo-Odofin", price: 1300 },
+    { name: "Apapa", price: 1100 },
+    { name: "Badagry", price: 1600 },
+    { name: "Epe", price: 2000 },
+    { name: "Eti-Osa", price: 1400 },
+    { name: "Ibeju-Lekki", price: 1900 },
+    { name: "Ifako-Ijaiye", price: 1000 },
+    { name: "Ikeja", price: 900 },
+    { name: "Ikorodu", price: 1700 },
+    { name: "Kosofe", price: 1100 },
+    { name: "Lagos Island", price: 1000 },
+    { name: "Lagos Mainland", price: 1200 },
+    { name: "Mushin", price: 1000 },
+    { name: "Ojo", price: 1300 },
+    { name: "Oshodi-Isolo", price: 1000 },
+    { name: "Shomolu", price: 1100 },
+    { name: "Surulere", price: 1000 },
+  ];
+  
