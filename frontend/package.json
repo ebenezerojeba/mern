@@ -1,45 +1,26 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postinstall": "chmod +x node_modules/.bin/vite",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "serve": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ebenezerojeba/mern/commits?author=ebenezerojeba"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.15.19",
-    "@paystack/inline-js": "^2.19.1",
-    "@react-google-maps/api": "^2.19.3",
-    "axios": "^1.6.8",
-    "dom": "^0.0.3",
-    "firebase": "^10.9.0",
-    "formik": "^2.4.5",
-    "framer-motion": "^11.0.20",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-paystack": "^5.0.0",
-    "react-router-dom": "^6.22.3",
-    "react-toastify": "^10.0.5",
-    "router": "^1.3.8",
-    "swiper": "^11.0.7",
-    "toastify": "^2.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.3.5"
-  },
-  "engines": {
-    "node": "22.1.0"
+    "vite": "^4.5.3",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }
