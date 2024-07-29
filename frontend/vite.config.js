@@ -5,7 +5,15 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['axios'],
+      external: [
+        // Add any dependencies that should be externalized here
+      ],
+      onwarn(warning, rollupWarn) {
+        if (warning.code === 'UNRESOLVED_IMPORT') {
+          // Handle unresolved imports
+        }
+        rollupWarn(warning);
+      },
     },
   },
 });
