@@ -12,7 +12,7 @@ const app = express()
 const port = process.env.PORT || 4000;
 
 //CORS
-const allowedOrigins = ['https://palatial.onrender.com', 'http://localhost:5174'];
+const allowedOrigins = ['https://palatial.onrender.com', 'https://palatial-admin.onrender.com'];
 
 app.use(cors({
     origin: function (origin, callback) {
