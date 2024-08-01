@@ -12,7 +12,6 @@ const app = express()
 const port = process.env.PORT || 5000;
 
 //CORS
-<<<<<<< HEAD
 const allowedOrigins = [
     'https://palatial.onrender.com',
     'https://palatial-admin.onrender.com',
