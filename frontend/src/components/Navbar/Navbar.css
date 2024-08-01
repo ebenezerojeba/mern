@@ -42,9 +42,9 @@
 .navbar li{
     cursor: pointer;
 }
-/* .navbar-search-icon{
+ .navbar-search-icon{
 position: relative;
-} */
+} 
 
 .navbar-search-icon .dot{
     position: absolute;
@@ -131,6 +131,9 @@ position: relative;
     .navbar-menu{
         display: none;
     }
+     .navbar-search-icon img{
+         display: none;
+     }
 }
 
 @media (max-width:377px) {
