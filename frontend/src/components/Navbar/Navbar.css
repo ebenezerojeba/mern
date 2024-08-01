@@ -131,9 +131,6 @@ position: relative;
     .navbar-menu{
         display: none;
     }
-     .navbar-search-icon{
-         display: none;
-     }
 }
 
 @media (max-width:377px) {
