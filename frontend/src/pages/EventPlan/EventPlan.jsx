@@ -9,10 +9,13 @@ import TypesOfEvents from '../../components/TypesOfEvent/TypesOfEvent';
 import ServiceDetails from '../../components/ServiceDetails/ServiceDetails';
 // import VismeButton from '../../components/VisMe/VisMeButton';
 import VisMe from '../../components/VisMe/VisMe';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 const EventPlan = () => {
+  
   return (
     <div id='eventplan' className='eventplan'>
+      <ScrollToTop />
       <Introduction />
       <TypesOfEvents />
       <ServiceDetails />

@@ -3,7 +3,7 @@ import axios from "axios";
 import userModel from "../models/userModel.js";
 
 const paystackSecretKey = process.env.PAYSTACK_SECRET_KEY;
-const frontend_url = "http://localhost:5173"; 
+const frontend_url = "https://palatial.onrender.com"|| "http://localhost:5173"; 
 
 
 // Simulated cart storage (in memory, you might want to use session storage or database)

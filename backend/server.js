@@ -9,10 +9,31 @@ import orderRouter from "./routes/orderRoute.js"
 
 // app config
 const app = express()
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 //CORS
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+const allowedOrigins = [
+    'https://palatial.onrender.com',
+    'https://palatial-admin.onrender.com',
+    'http://localhost:5173',
+    'http://localhost:5174'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin, like mobile apps or curl requests
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  }));
+  
+{/*
+const allowedOrigins = ['https://palatial.onrender.com', 'https://palatial-admin.onrender.com', 'http://localhost:5173', 'http://localhost:5ll174'];
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -25,7 +46,7 @@ app.use(cors({
         return callback(null, true);
     },
     optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
-}));
+})); */}
 
 
 
@@ -48,6 +69,6 @@ app.get("/",(req,res)=>{
     res.send("API Working")
 })
 
-app.listen(port,()=>{
-    console.log(`Server Stared on http://localhost:${port}`)
-})
+app.listen(
+    console.log(`Server Stared on https://palatial-backend.onrender.com `)
+)

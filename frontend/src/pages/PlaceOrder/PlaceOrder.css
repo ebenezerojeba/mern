@@ -53,21 +53,33 @@
         max-width: 100%;
         overflow: hidden;
     }
+    .place-order-left input{
+        font-size: 1rem;
+    }
+    .place-order-left select{
+        font-size: 1rem;
+    }
     .place-order .place-order-left .title{
-        font-size: 23px;
-        margin-bottom: 1.8rem;
+        font-size: 25px;
+        margin-bottom: 2rem;
+        text-align: center;
+        margin-top: 1.5rem;
     }
     .place-order-right .cart-total h2{
         font-size: 19px;
-        margin-top: 25px;
+        margin-top: 35px;
+
     }
     .place-order-right .cart-total-details{
-        font-size: 16px;
+        font-size: 19px;
         padding: 0rem;
         margin: 0;
     }
     .place-order-right .cart-total button{
-        width: 190px;
+        width: 140px;
+        margin: 3rem 5rem 0 5rem;
+        align-items: center;
+
         font-size: 17px;
 
     }

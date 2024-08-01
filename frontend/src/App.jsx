@@ -13,13 +13,16 @@ import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import EventPlan from "./pages/EventPlan/EventPlan";
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import 'react-toastify/dist/ReactToastify.css';
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   return (
     <>
+    <ScrollToTop />
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <Navbar setShowLogin={setShowLogin} />
       <div className="app">
@@ -31,6 +34,7 @@ const App = () => {
           <Route path="/event" element={<EventPlan />} />
           <Route path="/verify" element={<Verify/>} />
           <Route path="/myorders" element={<MyOrders/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <ToastContainer/>
       </div>

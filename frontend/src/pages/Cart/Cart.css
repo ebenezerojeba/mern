@@ -85,10 +85,15 @@
     .cart-promocode{
         justify-content: start;
     }
+    .cart-items-item{
+        font-weight: 800;
+        justify-content: space-evenly;
+        text-transform: capitalize;
+    }
 }
 @media (max-width:376px) {
     .cart-total-details{
-        font-size: 13px;
+        font-size: 16px;
         margin-right: 1rem;
     }
 }
