@@ -42,11 +42,9 @@
 .navbar li{
     cursor: pointer;
 }
-.navbar-search-icon{
+/* .navbar-search-icon{
 position: relative;
-justify-content: space-between;
-
-}
+} */
 
 .navbar-search-icon .dot{
     position: absolute;
