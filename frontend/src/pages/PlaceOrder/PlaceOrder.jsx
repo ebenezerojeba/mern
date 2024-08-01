@@ -98,6 +98,7 @@ const PlaceOrder = () => {
   useEffect(()=>{
     if(!token) {
       alert("Please sign up or login to your account")
+      navigate('/')
     }
     else if (getTotalCartAmount() === 0)
     {
