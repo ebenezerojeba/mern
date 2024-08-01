@@ -12,6 +12,7 @@ const app = express()
 const port = process.env.PORT || 5000;
 
 //CORS
+<<<<<<< HEAD
 const allowedOrigins = [
     'https://palatial.onrender.com',
     'https://palatial-admin.onrender.com',
@@ -34,6 +35,9 @@ const allowedOrigins = [
   
 {/*
 const allowedOrigins = ['https://palatial.onrender.com', 'https://palatial-admin.onrender.com', 'http://localhost:5173', 'http://localhost:5ll174'];
+=======
+const allowedOrigins = ['https://palatial.onrender.com', 'https://palatial-admin.onrender.com', 'http://localhost:5173','http://localhost:5174'];
+>>>>>>> 519e88f0766e8bb5dcfd035f22fcbc0cd4118735
 
 app.use(cors({
     origin: function (origin, callback) {
