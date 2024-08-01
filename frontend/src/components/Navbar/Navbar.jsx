@@ -34,7 +34,7 @@ const navigate = useNavigate();
       <div className="navbar-right">
         <img src={assets} alt="" />
         <div className="navbar-search-icon">
-          <img src={assets} alt="" />
+          <img src={assets.search_icon} alt="" />
             <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
             <div className={getTotalCartAmount()===0?"":"dot"}></div>
         </div>
