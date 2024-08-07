@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./PlaceOrder.css";
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
@@ -10,6 +10,7 @@ import { PaystackButton } from "react-paystack";
 const PlaceOrder = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url, formatAmount } = useContext(StoreContext);
   const navigate = useNavigate();
+  const addressInputRef = useRef(null);
 
   const [data, setData] = useState({
     firstName: "",
@@ -97,14 +98,30 @@ const PlaceOrder = () => {
 
   useEffect(()=>{
     if(!token) {
-      alert("Please sign up or login to your account")
-      navigate('/')
+      alert("Please sign up or login to your account");
+      navigate("/");
     }
     else if (getTotalCartAmount() === 0)
     {
       navigate('/')
     }
   },[token])
+
+  useEffect(() => {
+    if (addressInputRef.current) {
+      const autocomplete = new window.google.maps.places.Autocomplete(addressInputRef.current, {
+        types: ["address"],
+        componentRestrictions: { country: "ng" },
+      });
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        setData((prevData) => ({
+          ...prevData,
+          address: place.formatted_address,
+        }));
+      });
+    }
+  }, [addressInputRef.current]);
 
   return (
     <form onSubmit={placeOrder} className="place-order">
@@ -115,7 +132,7 @@ const PlaceOrder = () => {
           <input required name="lastName" onChange={oncChangeHandler} value={data.lastName} type="text" placeholder="Last name" />
         </div>
         <input name="email" type="email" onChange={oncChangeHandler} value={data.email} placeholder="Email Address" />
-        <input required name="address" value={data.address} onChange={oncChangeHandler} type="text" placeholder="Address" />
+        <input required name="address" value={data.address} onChange={oncChangeHandler} type="text" placeholder="Address" ref={addressInputRef} />
         <input type="tel" name="phone" placeholder="Phone" id="phone" onChange={oncChangeHandler} value={data.phone} />
         <div className="multi-fields">
           <select
