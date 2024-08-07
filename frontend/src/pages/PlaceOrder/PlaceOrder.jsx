@@ -20,6 +20,10 @@ const PlaceOrder = () => {
     phone: "",
     lga: "",
     price: 0,
+    coordinates: {
+      lat: null,
+      lng: null,
+    }
   });
 
   const oncChangeHandler = (event) => {
@@ -43,38 +47,37 @@ const PlaceOrder = () => {
       currency: 'NGN',
       minimumFractionDigits: 0,
     }).format(number);
+  };
+
+  const placeOrder = async (event) => {
+    event.preventDefault();
+    let orderItems = [];
+    food_list.forEach((item) => {
+      if (cartItems[item._id] > 0) {
+        let itemInfo = item;
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo);
+      }
+    });
+
+    const orderData = {
+      userId: token.userId,
+      items: orderItems,
+      amount: getTotalCartAmount() + data.price,
+      address: data,
+      email: data.email
     };
 
-    const placeOrder = async (event) => {
-      event.preventDefault();
-      let orderItems = [];
-      food_list.forEach((item) => {
-        if (cartItems[item._id] > 0) {
-          let itemInfo = item;
-          itemInfo["quantity"] = cartItems[item._id];
-          orderItems.push(itemInfo);
-        }
-      });
-    
-      const orderData = {
-        userId: token.userId,
-        items: orderItems,
-        amount: getTotalCartAmount() + data.price,
-        address: data,
-        email: data.email
-      };
-    
-      console.log(orderData); // Debugging: Ensure amount is correct
-    
-      const response = await axios.post(url + "/api/order/place", orderData, {
-        headers: { token },
-      });
-    
-      if (response.data.success) {
-        window.location.replace(response.data.session_url);
-      }
-    };
-    
+    console.log(orderData); // Debugging: Ensure amount is correct
+
+    const response = await axios.post(url + "/api/order/place", orderData, {
+      headers: { token },
+    });
+
+    if (response.data.success) {
+      window.location.replace(response.data.session_url);
+    }
+  };
 
   const componentProps = {
     email: data.email,
@@ -94,18 +97,16 @@ const PlaceOrder = () => {
       console.log("Payment closed");
     },
   };
-  
 
-  useEffect(()=>{
-    if(!token) {
+  useEffect(() => {
+    if (!token) {
       alert("Please sign up or login to your account");
       navigate("/");
     }
-    else if (getTotalCartAmount() === 0)
-    {
+    else if (getTotalCartAmount() === 0) {
       navigate('/')
     }
-  },[token])
+  }, [token]);
 
   useEffect(() => {
     if (addressInputRef.current) {
@@ -115,9 +116,14 @@ const PlaceOrder = () => {
       });
       autocomplete.addListener("place_changed", () => {
         const place = autocomplete.getPlace();
+        const address = place.formatted_address;
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+
         setData((prevData) => ({
           ...prevData,
-          address: place.formatted_address,
+          address,
+          coordinates: { lat, lng },
         }));
       });
     }
@@ -157,7 +163,7 @@ const PlaceOrder = () => {
           )}
         </div>
       </div>
-  
+
       <div className="place-order-right">
         <div className="cart-total">
           <h2>Cart Totals</h2>
@@ -186,6 +192,6 @@ const PlaceOrder = () => {
       </div>
     </form>
   );
-}  
+}
 
 export default PlaceOrder;
